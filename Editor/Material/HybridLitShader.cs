@@ -100,10 +100,7 @@ namespace Illusion.Rendering.Editor
 
             if (material.HasProperty(IllusionShaderProperties.CastPerObjectShadow))
             {
-                bool hasPerObjectShadow = Mathf.Approximately(material.GetFloat(IllusionShaderProperties.CastPerObjectShadow), 1.0f);
-                material.SetShaderPassEnabled("PerObjectShadowCaster", hasPerObjectShadow);
-                // Disable main shadow caster to prevent shadow overdraw
-                material.SetShaderPassEnabled("ShadowCaster", !hasPerObjectShadow);
+                material.SetShaderPassEnabled("ShadowCaster", true);
             }
 
             int stencilRefDepth = 0;
