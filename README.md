@@ -28,7 +28,7 @@ IllusionRP demo for Sponza scene, see [AkiKurisu/IllusionRP-Demo](https://github
 
 <b>AIChara Demo</b> 
 
-IllusionRP is first designed to re-rendering game characters of @ILLUSION.
+IllusionRP is first designed to re-rendering game characters of @ILLUSION, see [AkiKurisu/IllusionRP-AIChara](https://github.com/AkiKurisu/IllusionRP-AIChara) for more details.
 
 ![Demo](https://github.com/AkiKurisu/IllusionRP-AIChara/raw/master/Documentation/images/banner.png)
 
