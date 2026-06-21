@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.2.4] - 2026-6-13
 
+### Changed
+
+- Improve PCSS penumbra mask generation, sampling, and screen-space shadow integration.
+
 ### Fixed
 
 - Fix screen-space shadow temporal accumulation artifacts by improving history validation and aligning reprojection behavior with HDRP.
+- Fix skin transmission lighting to preserve the raw light-facing term for backlit evaluation.
+- Fix skin Fresnel F0 storage to preserve RGB values when metallic or color-tinted F0 expressions are used.
 
 ## [1.2.3] - 2026-6-6
 
