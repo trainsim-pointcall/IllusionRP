@@ -14,13 +14,13 @@ struct SkinData
     float3 GeomNormal;                           // Geometric normal (without detail normal map).
     half3 Scatter;
     half3 Transmittance;
+    half3 F0;
     half Thickness;
     half LobeWeight;                            // Dual lobes mix weight.
     half Smoothness;                            // Lobe 2 smoothness.
     half PerceptualRoughness;                   // Lobe 2 roughness.
     half PerceptualRoughnessMix;                // Weighted blended roughness from dual lobes.
     half Wet;
-    half F0;
     uint DiffusionProfileIndex;
 };
 // ============================ Shader Define for Skin =============================== //
