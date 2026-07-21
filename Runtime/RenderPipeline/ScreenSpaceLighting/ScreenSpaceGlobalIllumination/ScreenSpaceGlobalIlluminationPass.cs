@@ -459,9 +459,9 @@ namespace Illusion.Rendering
                         IllusionShaderProperties._ExposureTexture, data.ExposureTexture);
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         IllusionShaderProperties._PrevExposureTexture, data.PrevExposureTexture);
+                    var reflectionProbeAtlas = Shader.GetGlobalTexture(Properties.ReflectionProbeAtlas);
                     context.cmd.GetNativeCommandBuffer().SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
-                        Properties.ReflectionProbeAtlas,
-                        new RenderTargetIdentifier(Properties.ReflectionProbeAtlas));
+                        Properties.ReflectionProbeAtlas, reflectionProbeAtlas);
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         Properties.IndirectDiffuseTextureRW, data.OutputTexture);
                     
