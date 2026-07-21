@@ -271,8 +271,14 @@ namespace Illusion.Rendering
 
             _contactShadowsPass = new ContactShadowsPass(_rendererData);
             _screenSpaceShadowsPass = new ScreenSpaceShadowsPass(_rendererData);
-            _screenSpaceShadowTemporalPass = new ScreenSpaceShadowTemporalPass(_rendererData);
-            _diffuseShadowDenoisePass = new DiffuseShadowDenoisePass(_rendererData);
+            if (pcssShadows)
+            {
+                _screenSpaceShadowTemporalPass = new ScreenSpaceShadowTemporalPass(_rendererData);
+            }
+            if (contactShadows)
+            {
+                _diffuseShadowDenoisePass = new DiffuseShadowDenoisePass(_rendererData);
+            }
             _screenSpaceShadowsPostPass = new ScreenSpaceShadowsPostPass();
             _subsurfaceScatteringPass = new SubsurfaceScatteringPass(_rendererData);
             _groundTruthAmbientOcclusionPass = new GroundTruthAmbientOcclusionPass(_rendererData);
