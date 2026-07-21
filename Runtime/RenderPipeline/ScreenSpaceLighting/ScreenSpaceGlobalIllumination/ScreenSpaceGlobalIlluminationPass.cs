@@ -459,7 +459,7 @@ namespace Illusion.Rendering
                         IllusionShaderProperties._ExposureTexture, data.ExposureTexture);
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         IllusionShaderProperties._PrevExposureTexture, data.PrevExposureTexture);
-                    context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
+                    context.cmd.GetNativeCommandBuffer().SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         Properties.ReflectionProbeAtlas,
                         new RenderTargetIdentifier(Properties.ReflectionProbeAtlas));
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
