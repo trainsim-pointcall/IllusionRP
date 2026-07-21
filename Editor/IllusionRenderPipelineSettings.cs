@@ -7,7 +7,7 @@ namespace Illusion.Rendering.Editor
     [FilePath("ProjectSettings/IllusionRenderPipelineSettings.asset", FilePathAttribute.Location.ProjectFolder)]
     public class IllusionRenderPipelineSettings : ScriptableSingleton<IllusionRenderPipelineSettings>
     {
-        public bool stripUnusedVariants = true;
+        public bool stripUnusedVariants = false;
 
         public static void SaveSettings()
         {
