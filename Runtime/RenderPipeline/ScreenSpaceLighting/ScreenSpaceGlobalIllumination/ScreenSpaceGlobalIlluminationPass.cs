@@ -428,6 +428,11 @@ namespace Illusion.Rendering
                 passData.ExposureTexture = exposureTexture;
                 builder.UseTexture(prevExposureTexture);
                 passData.PrevExposureTexture = prevExposureTexture;
+
+                // URP publishes its reflection probe atlas as a global texture during Forward+ light setup.
+                // RenderGraph must retain global texture dependencies, and compute kernels require the atlas
+                // to be bound explicitly before dispatch.
+                builder.UseAllGlobalTextures(true);
                 
                 builder.AllowPassCulling(false);
                 builder.AllowGlobalStateModification(true);
@@ -454,6 +459,9 @@ namespace Illusion.Rendering
                         IllusionShaderProperties._ExposureTexture, data.ExposureTexture);
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         IllusionShaderProperties._PrevExposureTexture, data.PrevExposureTexture);
+                    context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
+                        Properties.ReflectionProbeAtlas,
+                        new RenderTargetIdentifier(Properties.ReflectionProbeAtlas));
                     context.cmd.SetComputeTextureParam(data.ComputeShader, data.ReprojectKernel,
                         Properties.IndirectDiffuseTextureRW, data.OutputTexture);
                     
@@ -1016,6 +1024,8 @@ namespace Illusion.Rendering
             public static readonly int IndirectDiffuseTextureRW = Shader.PropertyToID("_IndirectDiffuseTextureRW");
 
             public static readonly int IndirectDiffuseTexture = Shader.PropertyToID("_IndirectDiffuseTexture");
+
+            public static readonly int ReflectionProbeAtlas = Shader.PropertyToID("urp_ReflProbes_Atlas");
 
             public static readonly int HistoryDepthTexture = Shader.PropertyToID("_HistoryDepthTexture");
 
