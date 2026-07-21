@@ -66,6 +66,11 @@ namespace Illusion.Rendering.Editor
         {
             get
             {
+                if (!IllusionRenderPipelineSettings.instance.stripUnusedVariants)
+                {
+                    return false;
+                }
+
                 var asset = UniversalRenderPipeline.asset;
                 if (!asset)
                 {
@@ -93,7 +98,7 @@ namespace Illusion.Rendering.Editor
         {
             var strippingData = new ShaderStrippingData
             {
-                StripUnusedVariants = IllusionRenderPipelineSettings.instance,
+                StripUnusedVariants = IllusionRenderPipelineSettings.instance.stripUnusedVariants,
                 Shader = shader,
                 PassData = passData,
                 VariantData = variantData
